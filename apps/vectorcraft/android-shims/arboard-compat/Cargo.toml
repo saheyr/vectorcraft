@@ -1,0 +1,11 @@
+[package]
+name = "arboard-compat"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+arboard = { workspace = true, features = ["image-data", "wayland-data-control"] }
+
+[target.'cfg(target_os = "android")'.dependencies]
+arboard-android = { path = "../arboard-android" }

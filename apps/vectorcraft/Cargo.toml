@@ -26,13 +26,11 @@ serde_json = { workspace = true }
 log = { workspace = true }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-rfd = { workspace = true }
 # wayland-data-control: native Wayland clipboard (Linux; X11 through XWayland only sees what X11 apps copied).
-arboard = { workspace = true, features = ["image-data", "wayland-data-control"] }
 image = { workspace = true }
 webbrowser = { workspace = true }
 # The window's monitors, size and position (the same winit eframe runs on).
-winit = { version = "0.30", default-features = false }
+winit = { version = "0.30", default-features = false, features = ["android-native-activity"] }
 
 # The win7 target retains the viewer fallback; craft-print's WinRT PDF renderer needs newer Windows.
 [target.'cfg(all(not(target_arch = "wasm32"), not(target_vendor = "win7")))'.dependencies]
@@ -96,3 +94,11 @@ winresource = "0.1"
 socket2 = { workspace = true }
 # src/portal_save.rs's tests build and read the portal's D-Bus values on every system.
 zbus = "=5.19.0"
+
+[dependencies.rfd]
+package = "rfd-compat"
+path = "android-shims/rfd-compat"
+
+[dependencies.arboard]
+package = "arboard-compat"
+path = "android-shims/arboard-compat"

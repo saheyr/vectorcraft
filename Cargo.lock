@@ -228,6 +228,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "arboard-android"
+version = "0.0.0"
+
+[[package]]
+name = "arboard-compat"
+version = "0.0.0"
+dependencies = [
+ "arboard",
+ "arboard-android",
+]
+
+[[package]]
 name = "arrayref"
 version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3534,6 +3546,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "rfd-android"
+version = "0.0.0"
+
+[[package]]
+name = "rfd-compat"
+version = "0.0.0"
+dependencies = [
+ "rfd",
+ "rfd-android",
+]
+
+[[package]]
 name = "rgb"
 version = "0.8.53"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4514,7 +4538,7 @@ dependencies = [
 name = "vectorcraft"
 version = "0.13.1"
 dependencies = [
- "arboard",
+ "arboard-compat",
  "block2 0.6.2",
  "clipboard-win",
  "craft-print",
@@ -4530,7 +4554,7 @@ dependencies = [
  "objc2-foundation 0.3.2",
  "pollster 1.0.1",
  "raw-window-handle",
- "rfd",
+ "rfd-compat",
  "serde_json",
  "socket2",
  "vectorcraft-engine",
